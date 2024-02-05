@@ -1,5 +1,6 @@
 # ContextMix
 ![teaser](assets/teaser.jpg)
+
 Official PyTorch implementation of Engineering Applications of Artificial Intelligence (EAAI) paper
 
 [**ContextMix: A context-aware data augmentation method for industrial visual inspection systems**]([https://arxiv.org/pdf/2401.10050.pdf](https://doi.org/10.1016/j.engappai.2023.107842)).
