@@ -52,8 +52,8 @@ Our code is modified and adapted on these great repositories:
 
 ## Citation
 If you use this method or this code in your research, please cite as:
-   
-   @article{KIM2024107842,
+```
+@article{KIM2024107842,
       title = {ContextMix: A context-aware data augmentation method for industrial visual inspection systems},
       journal = {Engineering Applications of Artificial Intelligence},
       volume = {131},
@@ -64,7 +64,7 @@ If you use this method or this code in your research, please cite as:
       url = {https://www.sciencedirect.com/science/article/pii/S0952197623020262},
       author = {Hyungmin Kim and Donghun Kim and Pyunghwan Ahn and Sungho Suh and Hansang Cho and Junmo Kim}
    }
-
+```
 
 ## License
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
