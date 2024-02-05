@@ -12,46 +12,58 @@ Official PyTorch implementation of Engineering Applications of Artificial Intell
 - NumPy
 - tqdm
 
-## Datasets
-1. Download four public benchmarks for fine-grained dataset
-   - [CUB-200-2011](http://www.vision.caltech.edu/visipedia-data/CUB-200-2011/CUB_200_2011.tgz)
-   - [MIT-67: Indoor Scene Recognition](http://groups.csail.mit.edu/vision/LabelMe/NewImages/indoorCVPR_09.tar)
-   - [Stanford Dogs Dataset](http://vision.stanford.edu/aditya86/ImageNetDogs/images.tar)
-   - [FGVC-Aircraft Benchmark](https://www.robots.ox.ac.uk/~vgg/data/fgvc-aircraft/archives/fgvc-aircraft-2013b.tar.gz)
-
-2. Extract the tgz or zip file into `./data/` (Exceptionally, for CUB-200-2011, put the files in a `./data/CUB200`)
-
 ## Train Examples
-- CUB-200: We used 1 GPUs to train CUB-200.
+- CIFAR-100: We used 2 GPUs to train CIFAR-100.
 ```
 python train.py \
---model resnet18 \
---dataset cub \
---alpha 32 \
---mrg 0.1 \
---lr 1e-4 \
---warm 5 \
---epochs 60 \
---batch_size 120 \
+--net_type pyramidnet \
+--dataset cifar100 \
+--depth 200 \
+--alpha 240 \
+--batch_size 64 \
+--lr 0.25 \
+--expname PyraNet200 \
+--epochs 300 \
+--beta 1.0 \
+--mix_prob 0.5 \
+--no-verbose
+```
+- ImageNet: We used 4 GPUs to train ImageNet.
+```
+python train.py \
+--net_type resnet \
+--dataset imagenet \
+--batch_size 256 \
+--lr 0.1 \
+--depth 50 \
+--epochs 300 \
+--expname ResNet50 \
+-j 40 \
+--beta 1.0 \
+--mix_prob 1.0 \
+--no-verbose
 ```
 
 ## Acknowledgements
 Our code is modified and adapted on these great repositories:
 
-- [Proxy Anchor Loss for Deep Metric Learning](https://github.com/tjddus9597/Proxy-Anchor-CVPR2020)
+- [CutMix: Regularization Strategy to Train Strong Classifiers with Localizable Features](https://github.com/clovaai/CutMix-PyTorch)
 
 
 ## Citation
 If you use this method or this code in your research, please cite as:
-
-    @InProceedings{Kim_2023_ICCV,
-      author = {Kim, Hyungmin and Suh, Sungho and Kim, Daehwan and Jeong, Daun and Cho, Hansang and Kim, Junmo},
-      title = {Proxy Anchor-based Unsupervised Learning for Continuous Generalized Category Discovery},
-      booktitle = {Proceedings of the IEEE/CVF International Conference on Computer Vision (ICCV)},
-      month = {October},
-      year = {2023},
-      pages = {16688-16697}
-    }
+   
+   @article{KIM2024107842,
+      title = {ContextMix: A context-aware data augmentation method for industrial visual inspection systems},
+      journal = {Engineering Applications of Artificial Intelligence},
+      volume = {131},
+      pages = {107842},
+      year = {2024},
+      issn = {0952-1976},
+      doi = {https://doi.org/10.1016/j.engappai.2023.107842},
+      url = {https://www.sciencedirect.com/science/article/pii/S0952197623020262},
+      author = {Hyungmin Kim and Donghun Kim and Pyunghwan Ahn and Sungho Suh and Hansang Cho and Junmo Kim}
+   }
 
 
 ## License
