@@ -173,8 +173,6 @@ def main():
             best_err5 = err5
 
         print('Current best accuracy (top-1 and 5 error):', best_err1, best_err5)
-        with open("./output_rz_cs.txt", "a") as f1:
-            print('Current best accuracy (top-1 and 5 error):', best_err1, best_err5, file=f1)
 
         save_checkpoint({
             'epoch': epoch,
@@ -195,10 +193,8 @@ def train(train_loader, model, criterion, optimizer, epoch):
     data_time = AverageMeter()
     losses = AverageMeter()
     top1 = AverageMeter()
-    top5 = AverageMeter()
-    
-    Theta_A = AverageMeter()
-    # Theta_B = AverageMeter()
+    top5 = AverageMeter()   
+
     Lamda = AverageMeter()    
 
     # switch to train mode
@@ -261,11 +257,8 @@ def train(train_loader, model, criterion, optimizer, epoch):
         batch_time.update(time.time() - end)
         end = time.time()
 
-    print('* Epoch: [{0}/{1}]\t Top 1-err {top1.avg:.3f}  Top 5-err {top5.avg:.3f}\t Train Loss {loss.avg:.3f}\t Lamda {lam.avg:.3f}  T_A {t_a.avg:.3f}'.format(
-        epoch, args.epochs, top1=top1, top5=top5, loss=losses, lam=Lamda, t_a=Theta_A))
-    with open("./output_rz_cs.txt", "a") as f1:
-        print('* Epoch: [{0}/{1}]\t Top 1-err {top1.avg:.3f}  Top 5-err {top5.avg:.3f}\t Train Loss {loss.avg:.3f}\t Lamda {lam.avg:.3f}  T_A {t_a.avg:.3f}'.format(
-            epoch, args.epochs, top1=top1, top5=top5, loss=losses, lam=Lamda, t_a=Theta_A), file=f1)   
+    print('* Epoch: [{0}/{1}]\t Top 1-err {top1.avg:.3f}  Top 5-err {top5.avg:.3f}\t Train Loss {loss.avg:.3f}\t Lamda {lam.avg:.3f}'.format(
+        epoch, args.epochs, top1=top1, top5=top5, loss=losses, lam=Lamda))
 
     return losses.avg
 
@@ -319,9 +312,6 @@ def validate(val_loader, model, criterion, epoch):
 
     print('* Epoch: [{0}/{1}]\t Top 1-err {top1.avg:.3f}  Top 5-err {top5.avg:.3f}\t Test Loss {loss.avg:.3f}'.format(
         epoch, args.epochs, top1=top1, top5=top5, loss=losses))
-    with open("./output_rz_cs.txt", "a") as f1:
-        print('* Epoch: [{0}/{1}]\t Top 1-err {top1.avg:.3f}  Top 5-err {top5.avg:.3f}\t Test Loss {loss.avg:.3f}'.format(
-            epoch, args.epochs, top1=top1, top5=top5, loss=losses), file=f1)
 
     return top1.avg, top5.avg, losses.avg
 
