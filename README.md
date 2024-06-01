@@ -52,17 +52,15 @@ Our code is modified and adapted on these great repositories:
 ## Citation
 If you use this method or this code in your research, please cite as:
 ```
-@article{KIM2024107842,
-      title = {ContextMix: A context-aware data augmentation method for industrial visual inspection systems},
-      journal = {Engineering Applications of Artificial Intelligence},
-      volume = {131},
-      pages = {107842},
-      year = {2024},
-      issn = {0952-1976},
-      doi = {https://doi.org/10.1016/j.engappai.2023.107842},
-      url = {https://www.sciencedirect.com/science/article/pii/S0952197623020262},
-      author = {Hyungmin Kim and Donghun Kim and Pyunghwan Ahn and Sungho Suh and Hansang Cho and Junmo Kim}
-   }
+@article{kim2024contextmix,
+  title={ContextMix: A context-aware data augmentation method for industrial visual inspection systems},
+  author={Kim, Hyungmin and Kim, Donghun and Ahn, Pyunghwan and Suh, Sungho and Cho, Hansang and Kim, Junmo},
+  journal={Engineering Applications of Artificial Intelligence},
+  volume={131},
+  pages={107842},
+  year={2024},
+  publisher={Elsevier}
+}
 ```
 
 ## License
